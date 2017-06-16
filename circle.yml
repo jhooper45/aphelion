@@ -17,8 +17,9 @@ dependencies:
  database:
   override:
     - mysql -u ubuntu circle_test < my-database-setup.sql;
- test:
+test:
   override:
-    - php ./test-suite/run.php --unit-tests;
+    - php ./app/run-server.php --daemon
+    - php ./test-suite/run.php --unit-tests
     
     
