@@ -10,3 +10,15 @@ checkout:
   post:
     - cp ./ci-server/config.yml ./app-server/config.yml;
     
+dependencies:
+  post:
+    - python ./install-packages;
+ 
+ database:
+  override:
+    - mysql -u ubuntu circle_test < my-database-setup.sql;
+ test:
+  override:
+    - php ./test-suite/run.php --unit-tests;
+    
+    
