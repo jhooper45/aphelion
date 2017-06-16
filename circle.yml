@@ -1,2 +1,12 @@
 general:
-  build_dir: api
+  build_dir: api;
+  
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init;
+    
+   checkout:
+  post:
+    - cp ./ci-server/config.yml ./app-server/config.yml;
+    
